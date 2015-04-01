@@ -3,7 +3,7 @@ Team work of Necropolis for OOP 2015 of Telerik Academy
 
 ##Our project will be COMPANY TODO app
 ###Plan
-####Users
+####Users - Иван
 + Human - name, date birth, sex, age (abstract class maybe)
 + Employee - + position, salary, time worked (inheritors)
 + Manager positon=manager(?) (inheritor)
