@@ -25,7 +25,7 @@ _also when user is done with task, there will be point for him, to show how much
   
 _there should be option in their profile to see in which projects the collaborate_
 
-###Todos/tasks/projects etc.
+###Todos/tasks/projects etc. - Генко
 + Coment (maybe abstract)
 + Note (name, coment) (inherit)
 + Todo(name, coment, date due, reminder*) (inherit)
