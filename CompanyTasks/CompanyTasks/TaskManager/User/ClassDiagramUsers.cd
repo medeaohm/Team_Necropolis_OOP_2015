@@ -6,6 +6,7 @@
       <HashCode>AAAAACAAAAAgAAAkAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>User\Employee.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TaskManager.User.Person" Collapsed="true">
     <Position X="5.25" Y="1" Width="1.5" />
@@ -13,6 +14,7 @@
       <HashCode>AAAAAAAAAQAARAEEAEAABAQAAAAEAAQAAAAAAAAAAAA=</HashCode>
       <FileName>User\Person.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="TaskManager.User.JuniorEmployee" Collapsed="true">
     <Position X="4" Y="3.75" Width="1.5" />
@@ -25,7 +27,7 @@
   <Class Name="TaskManager.User.Manager" Collapsed="true">
     <Position X="6.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAkAAAAAAAAEAAAAAAAAAAAQAAAAEAAAAABAAAA=</HashCode>
       <FileName>User\Manager.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -33,7 +35,7 @@
   <Interface Name="TaskManager.User.Interfaces.IDirector" Collapsed="true">
     <Position X="8.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>User\Interfaces\IDirector.cs</FileName>
     </TypeIdentifier>
   </Interface>

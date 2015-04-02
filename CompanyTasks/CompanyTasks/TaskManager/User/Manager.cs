@@ -17,8 +17,8 @@ namespace TaskManager.User
         private ICollection<Employee> team;
         private ICollection<string> task;
 
-        public Manager(string name, string dateBirth, Gender sex, byte age, string position, int timeWorked, decimal salary)
-            :base(name, dateBirth, sex, age, position, timeWorked, salary)
+        public Manager(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
+            :base(name, dateBirth, sex, position, timeWorked, salary)
         {
             this.team = new List<Employee>();
             this.task = new List<string>();
@@ -30,6 +30,15 @@ namespace TaskManager.User
                 return new List<Employee>(team);
             }
         }
+
+        public ICollection<string> Task
+        {
+            get
+            {
+                return new List<string>(task);
+            }
+        }
+
         public void AddToTeam(Employee employeeName)
         {
             this.team.Add(employeeName);
