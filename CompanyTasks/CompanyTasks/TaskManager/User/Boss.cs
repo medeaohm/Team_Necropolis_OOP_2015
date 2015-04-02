@@ -10,10 +10,10 @@
 
     public class Boss : Person, IBoss
     {
-        public ICollection<Client> clients { get; set; }
+        public ICollection<Client> clients { get; private set; }
 
-        public Boss(string name, string dateBirth, Gender sex, byte age)
-            : base(name, dateBirth, sex, age)
+        public Boss(string name, DateTime dateBirth, Gender sex)
+            : base(name, dateBirth, sex)
         {
             this.clients = new List<Client>();
         }

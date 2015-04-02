@@ -6,23 +6,26 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public abstract class Person
+    using User.Interfaces;
+
+    public abstract class Person : IPerson
     {
         private const int GeneralLengthName = 2;
         private const int GeneralAgeValue = 18;
+        private const string GeneralNullOrEmptyNameException = "Name cannot be null or empty";
+        private const string GeneralNameLenghtMinValueException = "The name cannot be equal or less than 2 symbols";
+        private const string GeneralPlaceHolderShablonToString = "Name: {0}, Date of Birth: {1}, Sex: {2}, Age: {3}";
 
         private string name;
-        private string dateBirth;
-        private byte age;
+        private DateTime dateBirth;
 
-        public Gender Sex { get; set; }
+        public Gender Sex { get; private set; }
 
-        public Person(string name, string dateBirth, Gender sex, byte age)
+        public Person(string name, DateTime dateBirth, Gender sex)
         {
             this.Name = name;
-            this.DateBirth = dateBirth;
+            this.dateBirth = dateBirth;
             this.Sex = sex;
-            this.Age = age;
         }
 
         public string Name
@@ -31,53 +34,39 @@
             {
                 return this.name;
             }
-            set
+            private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException("Name cannot be null or empty");
+                    throw new ArgumentNullException(GeneralNullOrEmptyNameException);
                 }
                 if (value.Count() <= GeneralLengthName)
                 {
-                    throw new ArgumentOutOfRangeException("The name cannot be equal or less than 2 symbols");
+                    throw new ArgumentOutOfRangeException(GeneralNameLenghtMinValueException);
                 }
                 this.name = value;
             }
         }
-        public string DateBirth
+        public DateTime DateBirth
         {
             get
             {
                 return this.dateBirth;
             }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException("Date birdth cannot be null or empty");
-                }
-                this.dateBirth = value;
-            }
+          
         }
-        public byte Age
+        public int Age
         {
             get
             {
-                return this.age;
+                return DateTime.Now.Year - this.dateBirth.Year;
             }
-            set
-            {
-                if (value < GeneralAgeValue)
-                {
-                    throw new ArgumentOutOfRangeException("Age cannot be less than 18");
-                }
-                this.age = value;
-            }
+            
         }
         public override string ToString()
         {
             var result = new StringBuilder();
-            result.AppendLine(string.Format("Name: {0}, Date of Birth: {1}, Sex: {2}, Age: {3}", this.Name, this.DateBirth, this.Sex, this.Age));
+            result.AppendLine(string.Format(GeneralPlaceHolderShablonToString, this.Name, this.DateBirth.ToShortDateString(), this.Sex, this.Age));
             return result.ToString();
         }
     }

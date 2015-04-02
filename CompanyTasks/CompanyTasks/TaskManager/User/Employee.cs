@@ -10,7 +10,9 @@ namespace TaskManager.User
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Employee : Person
+    using User.Interfaces;
+
+    public class Employee : Person, IEmployee
     {
 
         private decimal salary;
@@ -18,8 +20,8 @@ namespace TaskManager.User
         public int TimeWorked { get; private set; }
         public string Position { get; private set; }
 
-        public Employee(string name, string dateBirth, Gender sex, byte age, string position, int timeWorked, decimal salary)
-            : base(name, dateBirth, sex, age)
+        public Employee(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
+            :base (name, dateBirth, sex)
         {
             this.Position = position;
             this.TimeWorked = timeWorked;
@@ -32,7 +34,7 @@ namespace TaskManager.User
             {
                 return this.salary;
             }
-            set
+            private set
             {
                 if (value < 900)
                 {

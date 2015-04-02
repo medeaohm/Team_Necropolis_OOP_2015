@@ -56,6 +56,9 @@
     <Compile Include="User\Employee.cs" />
     <Compile Include="User\Enums\Department.cs" />
     <Compile Include="User\Interfaces\IBoss.cs" />
+    <Compile Include="User\Interfaces\IClient.cs" />
+    <Compile Include="User\Interfaces\IEmployee.cs" />
+    <Compile Include="User\Interfaces\IPerson.cs" />
     <Compile Include="User\Person.cs" />
     <Compile Include="User\Enums\Gender.cs" />
     <Compile Include="User\Interfaces\ICreateNewTask.cs" />
