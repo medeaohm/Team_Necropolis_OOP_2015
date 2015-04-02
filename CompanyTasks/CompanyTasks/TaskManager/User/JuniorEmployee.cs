@@ -13,6 +13,10 @@ namespace TaskManager.User
 
     public class JuniorEmployee : Employee, IIsPromoted
     {
+        public JuniorEmployee(string name, string dateBirth, byte age, Gender sex, string position, int timeWorked, decimal salary )
+            :base(name, dateBirth, sex, age, position, timeWorked, salary)
+        {
 
+        }
     }
 }

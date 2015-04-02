@@ -2,8 +2,7 @@
 {
     public interface IDirector
     {
-        /* 
-         A manager can be promoted and become a director
-         */
+        void AddToTeam(Employee employeeName);
+        void RemoveFromTeam(Employee employeeName);
     }
 }
