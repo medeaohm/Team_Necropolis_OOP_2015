@@ -4,6 +4,6 @@
     {
         Done,
         InProgress,
-        Future
+        Future,
     }
 }

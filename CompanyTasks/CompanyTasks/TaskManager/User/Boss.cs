@@ -10,22 +10,22 @@
 
     public class Boss : Person, IBoss
     {
-        public ICollection<Client> clients { get; private set; }
+        public ICollection<IClient> clients { get; private set; }
 
         public Boss(string name, DateTime dateBirth, Gender sex)
             : base(name, dateBirth, sex)
         {
-            this.clients = new List<Client>();
+            this.clients = new List<IClient>();
         }
 
 
-        public void addClient(Client clientName)
+        public void addClient(IClient clientName)
         {
             clients.Add(clientName);
         }
 
 
-        public void removeClient(Client clientName)
+        public void removeClient(IClient clientName)
         {
             clients.Remove(clientName);
         }

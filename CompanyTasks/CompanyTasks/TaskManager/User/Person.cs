@@ -34,19 +34,23 @@
             {
                 return this.name;
             }
+
             private set
             {
                 if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException(GeneralNullOrEmptyNameException);
                 }
+
                 if (value.Count() <= GeneralLengthName)
                 {
                     throw new ArgumentOutOfRangeException(GeneralNameLenghtMinValueException);
                 }
+
                 this.name = value;
             }
         }
+
         public DateTime DateBirth
         {
             get
@@ -55,6 +59,7 @@
             }
           
         }
+
         public int Age
         {
             get

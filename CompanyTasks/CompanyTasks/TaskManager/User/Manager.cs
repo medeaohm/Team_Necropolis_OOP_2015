@@ -8,58 +8,43 @@ namespace TaskManager.User
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
+
     using User.Interfaces;
 
-
-    public class Manager : Employee, IDirector, IPromote, ICreateNewTask
+    public class Manager : Employee, IPromote, ICreateNewTask
     {
-        private ICollection<Employee> team;
         private ICollection<string> task;
 
         public Manager(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
             :base(name, dateBirth, sex, position, timeWorked, salary)
         {
-            this.team = new List<Employee>();
+            this.Team = new Team("Baba Meca");
             this.task = new List<string>();
         }
-        public ICollection<Employee> Team
+
+        public Team Team { get; private set; }
+
+        public void AddToTeam(IEmployee employeeName)
         {
-            get
-            {
-                return new List<Employee>(team);
-            }
+            Team.TeamMembers.Add(employeeName);
         }
 
-        public ICollection<string> Task
+        public void RemoveFromTeam(IEmployee employeeName)
         {
-            get
-            {
-                return new List<string>(task);
-            }
-        }
-
-        public void AddToTeam(Employee employeeName)
-        {
-            this.team.Add(employeeName);
-        }
-
-        public void RemoveFromTeam(Employee employeeName)
-        {
-            this.team.Remove(employeeName);
+            this.Team.TeamMembers.Remove(employeeName);
         }
         
         public void CreateNewTaskToTeam(string newTask)
         {
-            this.task.Add(newTask);
+            this.Team.TeamTasks.Add(newTask);
         }
 
         public override string ToString()
         {
             var result = new StringBuilder();
 
-            var teamName = this.Team
-                .Select(x => x.Name);
+            var teamName = this.Team.TeamName;
+                
 
             result.Append(base.ToString());
             result.AppendLine(string.Format("The {1}'s team - {0}", string.Join(", ", teamName), this.Name));
@@ -67,8 +52,5 @@ namespace TaskManager.User
             result.AppendLine(string.Format("{0}", string.Join(", ", this.task)));
             return result.ToString();
         }
-
-       
     }
-
 }

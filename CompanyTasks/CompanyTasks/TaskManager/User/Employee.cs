@@ -15,10 +15,11 @@ namespace TaskManager.User
     public class Employee : Person, IEmployee
     {
 
-        private decimal salary;
+        private const decimal MinSalaty = 900M;
+        private const string ErrMessageWhenSalaryIsToLessFrom900 = "Salary cannot be less than 900 BGN";
+        private const string GeneralToStringFormat = "Position: {0}, Salary: {1}, Time Worked: {2}";
 
-        public int TimeWorked { get; private set; }
-        public string Position { get; private set; }
+        private decimal salary;
 
         public Employee(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
             :base (name, dateBirth, sex)
@@ -28,17 +29,22 @@ namespace TaskManager.User
             this.Salary = salary;
         }
 
+        public int TimeWorked { get; private set; }
+
+        public string Position { get; private set; }
+
         public decimal Salary
         {
             get
             {
                 return this.salary;
             }
+
             private set
             {
-                if (value < 900)
+                if (value < Employee.MinSalaty)
                 {
-                    throw new ArgumentOutOfRangeException("Salary cannot be less than 900 BGN");
+                    throw new ArgumentOutOfRangeException("Salary", Employee.ErrMessageWhenSalaryIsToLessFrom900);
                 }
                 this.salary = value;
             }
@@ -47,7 +53,7 @@ namespace TaskManager.User
         {
             var result = new StringBuilder();
             result.Append(base.ToString());
-            result.AppendLine(string.Format("Position: {0}, Salary: {1}, Time Worked: {2}", this.Position, this.Salary, this.TimeWorked));
+            result.AppendLine(string.Format(Employee.GeneralToStringFormat, this.Position, this.Salary, this.TimeWorked));
             return result.ToString();
         }
     }
