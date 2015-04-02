@@ -3,15 +3,15 @@
   <Class Name="TaskManager.User.Employee" Collapsed="true">
     <Position X="5.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAgAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAgAAAkAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>User\Employee.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TaskManager.User.Human" Collapsed="true">
+  <Class Name="TaskManager.User.Person" Collapsed="true">
     <Position X="5.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>User\Human.cs</FileName>
+      <HashCode>AAAAAAAAAQAARAEEAEAABAQAAAAEAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>User\Person.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TaskManager.User.JuniorEmployee" Collapsed="true">
@@ -51,11 +51,11 @@
       <FileName>User\Enums\Department.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="TaskManager.User.Sex" Collapsed="true">
+  <Enum Name="TaskManager.User.Gender" Collapsed="true">
     <Position X="10.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>User\Enums\Sex.cs</FileName>
+      <FileName>User\Enums\Gender.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

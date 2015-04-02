@@ -51,10 +51,13 @@
     <Compile Include="Task\SingleToDo.cs" />
     <Compile Include="Task\Task.cs" />
     <Compile Include="Task\ToDo.cs" />
+    <Compile Include="User\Boss.cs" />
+    <Compile Include="User\Client.cs" />
     <Compile Include="User\Employee.cs" />
     <Compile Include="User\Enums\Department.cs" />
-    <Compile Include="User\Human.cs" />
-    <Compile Include="User\Enums\Sex.cs" />
+    <Compile Include="User\Interfaces\IBoss.cs" />
+    <Compile Include="User\Person.cs" />
+    <Compile Include="User\Enums\Gender.cs" />
     <Compile Include="User\Interfaces\ICreateNewTask.cs" />
     <Compile Include="User\Interfaces\IDirector.cs" />
     <Compile Include="User\Interfaces\IIsPromoted.cs" />

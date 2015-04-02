@@ -1,6 +1,6 @@
 ﻿namespace TaskManager.User
 {
-    public enum Sex
+    public enum Gender
     {
         Male,
         Female
