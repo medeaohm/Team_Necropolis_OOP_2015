@@ -30,7 +30,7 @@
 
             private set
             {
-                this.validation.ValidateContent(value);
+                this.validation.ValidateContent(value, "Content length");
 
                 this.content = value;
             }

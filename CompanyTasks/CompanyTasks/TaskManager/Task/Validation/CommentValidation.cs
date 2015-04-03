@@ -7,13 +7,12 @@ namespace TaskManager.Task.Validation
     {
         private const int MaxContentLength = 600;
         private const int MinContentLenght = 10;
-        private readonly string ErrMessWhenContentIsNevalid = 
-            string.Format("Content must be to less from {0} or to bigger from {1}", MaxContentLength, MinContentLenght);
 
-
-        public void ValidateContent(string value)
+        public void ValidateContent(string value, string param)
         {
-            this.StringLengthMinMax(value,MaxContentLength,MinContentLenght,ErrMessWhenContentIsNevalid);
+            this.NotNullable(value, param);
+
+            this.StringLengthMinMax(value, param, MaxContentLength, MinContentLenght);
         }
     }
 }

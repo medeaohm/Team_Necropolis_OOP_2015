@@ -5,7 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
-
+    using Enums;
     using User.Interfaces;
 
     public class Boss : Person, IBoss

@@ -5,16 +5,17 @@
 namespace TaskManager.User
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
+
+    using Enums;
     using User.Interfaces;
 
     public class JuniorEmployee : Employee, IIsPromoted
     {
-        public JuniorEmployee(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary )
-            :base(name, dateBirth, sex, position, timeWorked, salary)
+        private const decimal InitSalary = 900;
+        private const PositionType InitPosition = PositionType.Junior;
+
+        public JuniorEmployee(string name, DateTime dateBirth, Gender sex, int timeWorked )
+            : base(name, dateBirth, sex, InitPosition, timeWorked, InitSalary)
         {
 
         }

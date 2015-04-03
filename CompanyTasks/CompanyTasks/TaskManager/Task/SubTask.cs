@@ -9,12 +9,11 @@
 
     public class Subtask : ISubtask
     {
-        private readonly ITaskValidation validation;
+        private readonly ITaskValidation validation = new TaskValidation();
 
         private string title;
         private string description;
         private int daysToEnd;
-
 
         public Subtask(string initTitle, int initDaysToEnd, string initDescription, PriorityType initPriority)
         {
@@ -22,8 +21,6 @@
             this.Priority = initPriority;
             this.DateToCreate = DateTime.Now;
             this.Description = initDescription;
-
-            this.validation = new TaskValidation();
         }
 
         public PriorityType Priority { get; set; }
@@ -49,7 +46,7 @@
 
             set
             {
-                this.validation.ValidateDaysToEnd(value);
+                this.validation.ValidateDaysToEnd(value, "Days to end");
 
                 this.daysToEnd = value;
             }
@@ -64,7 +61,7 @@
 
             private set
             {
-                validation.ValidateTitle(value);
+                this.validation.ValidateTitle(value, "Title");
 
                 this.title = value;
             }
@@ -79,7 +76,7 @@
 
             set
             {
-                this.validation.ValidateDescription(value);
+                this.validation.ValidateDescription(value, "Descriptyon");
 
                 this.description = value;
             }
@@ -88,6 +85,11 @@
         protected ITaskValidation Validation
         {
             get { return this.validation; }
+        }
+
+        public override string ToString()
+        {
+            return string.Format("ToDo {0} - Title {1} , Description {2}", this.GetType().Name, this.title, this.description);
         }
     }
 }

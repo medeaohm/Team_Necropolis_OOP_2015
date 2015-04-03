@@ -5,11 +5,5 @@
     public interface IManager 
     {
         Team Team { get; }
-
-        ICollection<string> Task { get; }
-
-        void AddToTeam(IEmployee employeeName);
-
-        void RemoveFromTeam(IEmployee employeeName);
     }
 }

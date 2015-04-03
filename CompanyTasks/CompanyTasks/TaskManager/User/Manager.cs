@@ -9,35 +9,22 @@ namespace TaskManager.User
     using System.Linq;
     using System.Text;
 
+    using Enums;
     using User.Interfaces;
+    using Task.Interfaces;
 
-    public class Manager : Employee, IPromote, ICreateNewTask
+    public class Manager : Employee, IManager
     {
-        private ICollection<string> task;
+        private const decimal InitSalary = 3000M;
+        private const PositionType InitPosition = PositionType.Manager;
 
-        public Manager(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
-            :base(name, dateBirth, sex, position, timeWorked, salary)
+        public Manager(string name, DateTime dateBirth, Gender sex, int timeWorked, Team initTeam)
+            : base(name, dateBirth, sex, InitPosition, timeWorked, InitSalary)
         {
-            this.Team = new Team("Baba Meca");
-            this.task = new List<string>();
+            this.Team = initTeam;
         }
 
         public Team Team { get; private set; }
-
-        public void AddToTeam(IEmployee employeeName)
-        {
-            Team.TeamMembers.Add(employeeName);
-        }
-
-        public void RemoveFromTeam(IEmployee employeeName)
-        {
-            this.Team.TeamMembers.Remove(employeeName);
-        }
-        
-        public void CreateNewTaskToTeam(string newTask)
-        {
-            this.Team.TeamTasks.Add(newTask);
-        }
 
         public override string ToString()
         {
@@ -49,7 +36,7 @@ namespace TaskManager.User
             result.Append(base.ToString());
             result.AppendLine(string.Format("The {1}'s team - {0}", string.Join(", ", teamName), this.Name));
             result.AppendLine("Task's to Team:");
-            result.AppendLine(string.Format("{0}", string.Join(", ", this.task)));
+            result.AppendLine(string.Format("{0}", string.Join(", ", this.PersonalTask)));
             return result.ToString();
         }
     }

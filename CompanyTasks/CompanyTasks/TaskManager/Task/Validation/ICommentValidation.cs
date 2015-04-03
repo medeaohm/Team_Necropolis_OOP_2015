@@ -2,6 +2,6 @@
 {
     public interface ICommentValidation
     {
-        void ValidateContent(string value);
+        void ValidateContent(string value, string param);
     }
 }

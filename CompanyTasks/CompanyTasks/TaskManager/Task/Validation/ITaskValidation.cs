@@ -7,11 +7,11 @@
 
     public interface ITaskValidation 
     {
-        void ValidateDaysToEnd(int value);
+        void ValidateDaysToEnd(int value, string param);
 
-        void ValidateDescription(string value);
+        void ValidateDescription(string value, string param);
 
-        void ValidateTitle(string value);
+        void ValidateTitle(string value, string param);
 
         void SubtaskNotFound(ISubtask subtask);
     }

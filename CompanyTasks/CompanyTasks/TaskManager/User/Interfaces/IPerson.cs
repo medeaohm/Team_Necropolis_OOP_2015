@@ -1,6 +1,7 @@
 ﻿namespace TaskManager.User.Interfaces
 {
     using System;
+    using Enums;
 
     public interface IPerson
     {

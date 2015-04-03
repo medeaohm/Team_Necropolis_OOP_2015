@@ -1,20 +1,21 @@
 ﻿namespace TaskManager.User
 {
-    using Interfaces;
     using System.Collections.Generic;
 
+    using Interfaces;
+    using Task.Interfaces;
+    using Task;
 
     public class Team
     {
         private string name;
 
+        private IDictionary<IEmployee, ICollection<IToDo>> employeeTasks;
+
         public Team(string teamName)
         {
-
-            this.TeamMembers = new List<IEmployee>();
-            this.TeamTasks = new List<string>();
+            this.employeeTasks = new Dictionary<IEmployee, ICollection<IToDo>>();
         }
-
 
         public string TeamName
         {
@@ -27,13 +28,38 @@
             {
                 this.name = value;
             }
-
-
         }
 
-        public ICollection<IEmployee> TeamMembers { get; private set; }
+        public IDictionary<IEmployee, ICollection<IToDo>> EmployeeTasks
+        {
+            get
+            {
+                return new Dictionary<IEmployee, ICollection<IToDo>>(this.employeeTasks);
+            }
+        }
 
-        public ICollection<string> TeamTasks { get; private set; }
+        public IEnumerable<IEmployee> GetAllEmployees
+        {
+            get
+            {
+                return new List<IEmployee>(this.employeeTasks.Keys);
+            }
+        }
+
+        public void AddEmployee(IEmployee employee)
+        {
+            this.employeeTasks.Add(employee, new List<IToDo>());
+        }
+
+        public void AddTasks(IEmployee employee, IToDo task)
+        {
+            this.employeeTasks[employee].Add(task);
+        }
+
+        public IEnumerable<IToDo> GetTasks(IEmployee employee)
+        {
+            return new List<IToDo>(this.employeeTasks[employee]);
+        }
 
     }
 }

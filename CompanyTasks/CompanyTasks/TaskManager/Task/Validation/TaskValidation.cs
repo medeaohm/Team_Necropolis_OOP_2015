@@ -8,38 +8,32 @@
 
     public class TaskValidation : CommonValidation, ITaskValidation
     {
-        private const int TitleMinLenght = 3;
-        private const int TitleMaxLenght = 30;
-        private const int DescMinLenght = 20;
-        private const int DescMaxLenght = 1000;
+        private const int TitleMinLength = 3;
+        private const int TitleMaxLength = 30;
+        private const int DescMinLength = 20;
+        private const int DescMaxLength = 1000;
 
         private const string ErrMessNotNullable = "Subtask can not be found!";
         private const string ErrMessWhenDaysToEndIsNegativeInteger = "Days to end must be positive integer!";
 
-        private readonly string ErrMessWhenTitleIsNevalid =
-            string.Format("Title must be to less from {0} and to bigger from {1}", TitleMaxLenght, TitleMinLenght);
-
-        private readonly string ErrMessWhenDescriptionIsNevalid =
-            string.Format("Description must be to less from {0} and to bigger from {1}", DescMaxLenght, DescMinLenght);
-
-        public void ValidateTitle(string value)
+        public void ValidateTitle(string value, string param)
         {
-            base.StringLengthMinMax(value, TitleMaxLenght, TitleMinLenght, ErrMessWhenTitleIsNevalid);
+            base.StringLengthMinMax(value,param, TitleMaxLength, TitleMinLength);
         }
 
-        public void ValidateDescription(string value)
+        public void ValidateDescription(string value, string param)
         {
-            base.StringLengthMinMax(value, DescMaxLenght, DescMinLenght, ErrMessWhenDescriptionIsNevalid);
+            base.StringLengthMinMax(value, param, DescMaxLength, DescMinLength);
         }
 
-        public void ValidateDaysToEnd(int value)
+        public void ValidateDaysToEnd(int value, string param)
         {
-            this.NotNegativeIntegers(value, "Days to end", ErrMessWhenDaysToEndIsNegativeInteger);
+            this.NotNegativeIntegers(value, param);
         }
 
         public void SubtaskNotFound(ISubtask subtask)
         {
-            this.NotNullable(subtask,"Subtask", ErrMessNotNullable);
+            this.NotNullable(subtask,"Subtask");
         }
     }
 }
