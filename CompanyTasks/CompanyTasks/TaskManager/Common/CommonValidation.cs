@@ -20,7 +20,7 @@
 
         public void NotNegativeIntegers<T>(T integer,string param)  where T : struct, IComparable
         {
-            if (integer.CompareTo(0) < 0)
+            if (integer.CompareTo(default(T)) < 0)
             {
                 throw new ArgumentOutOfRangeException(param, ErrMEssIntegerCanNotBeNegative);
             }
