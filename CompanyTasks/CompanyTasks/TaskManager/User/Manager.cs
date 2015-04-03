@@ -13,7 +13,7 @@ namespace TaskManager.User
     using User.Interfaces;
     using Task.Interfaces;
 
-    public class Manager : Employee, IManager
+    public class Manager : Employee, IManager, IPromote
     {
         private const decimal InitSalary = 3000M;
         private const PositionType InitPosition = PositionType.Manager;
@@ -34,10 +34,16 @@ namespace TaskManager.User
                 
 
             result.Append(base.ToString());
-            result.AppendLine(string.Format("The {1}'s team - {0}", string.Join(", ", teamName), this.Name));
+            result.AppendLine(string.Format("The {1}'s team - {0}", string.Join(", ", this.Team.EmployeeTasks.Keys.Select(x=> x.Name)), this.Name));
             result.AppendLine("Task's to Team:");
-            result.AppendLine(string.Format("{0}", string.Join(", ", this.PersonalTask)));
+            result.AppendLine(string.Format("{0}", string.Join("\n", this.PersonalTask)));
             return result.ToString();
+        }
+
+ 
+        public void Promote(Employee employee)
+        {
+            employee.IsPromoted = true;
         }
     }
 }

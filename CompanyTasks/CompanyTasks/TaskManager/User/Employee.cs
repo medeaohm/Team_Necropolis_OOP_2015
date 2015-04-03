@@ -22,6 +22,7 @@ namespace TaskManager.User
         private decimal salary;
         private int timeWorked;
         private ICollection<IToDo> personalTasks;
+        public bool IsPromoted { get; set; }
 
         public Employee(string name, DateTime dateBirth, Gender sex, PositionType position, int timeWorked, decimal salary)
             : base(name, dateBirth, sex)

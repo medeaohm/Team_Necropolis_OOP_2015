@@ -9,7 +9,7 @@ namespace TaskManager.User
     using Enums;
     using User.Interfaces;
 
-    public class JuniorEmployee : Employee, IIsPromoted
+    public class JuniorEmployee : Employee, IIsPromotedToSinior
     {
         private const decimal InitSalary = 900;
         private const PositionType InitPosition = PositionType.Junior;
@@ -18,6 +18,15 @@ namespace TaskManager.User
             : base(name, dateBirth, sex, InitPosition, timeWorked, InitSalary)
         {
 
+        }
+
+        public SiniorEmployee PromotedToSinior(Employee employee, bool isPromoted)
+        {
+            if (employee.IsPromoted)
+            {
+                return new SiniorEmployee(employee.Name, employee.DateBirth, employee.Sex, 0);
+            }
+            else return null;
         }
     }
 }

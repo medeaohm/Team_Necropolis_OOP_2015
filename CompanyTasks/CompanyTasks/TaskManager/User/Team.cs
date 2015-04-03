@@ -5,8 +5,9 @@
     using Interfaces;
     using Task.Interfaces;
     using Task;
+    using User.Interfaces;
 
-    public class Team : TaskManager.User.ITeam
+    public class Team : ITeam
     {
         private string name;
 
@@ -49,6 +50,11 @@
         public void AddEmployee(IEmployee employee)
         {
             this.employeeTasks.Add(employee, new List<IToDo>());
+        }
+
+        public void RemoveEmployee(IEmployee employee)
+        {
+            this.employeeTasks.Remove(employee);
         }
 
         public void AddTasks(IEmployee employee, IToDo task)

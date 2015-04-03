@@ -72,13 +72,14 @@
     <Compile Include="User\Interfaces\IBoss.cs" />
     <Compile Include="User\Interfaces\IClient.cs" />
     <Compile Include="User\Interfaces\IEmployee.cs" />
+    <Compile Include="User\Interfaces\IIsPromotedToSinior - Copy.cs" />
     <Compile Include="User\Interfaces\IPerson.cs" />
     <Compile Include="User\Interfaces\ITeam.cs" />
     <Compile Include="User\Person.cs" />
     <Compile Include="User\Enums\Gender.cs" />
     <Compile Include="User\Interfaces\ICreateNewTask.cs" />
     <Compile Include="User\Interfaces\IManager.cs" />
-    <Compile Include="User\Interfaces\IIsPromoted.cs" />
+    <Compile Include="User\Interfaces\IIsPromotedToSinior.cs" />
     <Compile Include="User\Interfaces\IPromote.cs" />
     <Compile Include="User\JuniorEmployee.cs" />
     <Compile Include="User\Manager.cs" />
