@@ -6,7 +6,7 @@
     using Task.Interfaces;
     using Task;
 
-    public class Team
+    public class Team : TaskManager.User.ITeam
     {
         private string name;
 
