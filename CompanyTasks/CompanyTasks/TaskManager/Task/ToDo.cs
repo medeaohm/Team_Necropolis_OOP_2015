@@ -1,22 +1,65 @@
 ﻿namespace TaskManager.Task
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Interfaces;
-    using User;
     using Enum;
-    using User.Enums;
+    using Interfaces;
 
-    public class ToDo : Task, IComment
+    using System.Linq;
+    using System.Collections.Generic;
+
+    public abstract class ToDo : Subtask, IToDo
     {
-        private Manager Boss; // a manager is responsible for the task  - it should assigne it to other employees
-        private List<Employee> Persons; // a list of junior employee which has to complete the task
-        private Status status;
-        private Priority priority;
-        private Department department; // this is the task type 
+        private ICollection<ISubtask> subtasks;
+        private ICollection<IComment> comments;
 
+        public ToDo(string initTitle, int initDaysToEnd, string initDescription, PriorityType initPriority)
+            : base(initTitle, initDaysToEnd, initDescription, initPriority)
+        {
+            this.Status = StatusType.Launched;
+            this.subtasks = new List<ISubtask>();
+            this.comments = new List<IComment>();
+        }
+
+        public ICollection<ISubtask> Subtasks
+        {
+            get { return new List<ISubtask>(this.subtasks); }
+        }
+
+        public ICollection<IComment> Comments
+        {
+            get { return new List<IComment>(this.comments); }
+        }
+
+        public StatusType Status { get; set; }
+
+        public void AddSubtask(ISubtask subtask)
+        {
+            this.Validation.SubtaskNotFound(subtask);
+
+            this.subtasks.Add(subtask);
+        }
+
+        public void CompleateSubtask(ISubtask subtask)
+        {
+            var compleatedSubtask = this.subtasks.First(task => task.Title == subtask.Title);
+
+            this.Validation.SubtaskNotFound(compleatedSubtask);
+
+            compleatedSubtask.IsComleate = true;
+        }
+
+        public void RemoveSubtask(ISubtask subtask)
+        {
+            var deletedSubtask = this.subtasks.First(task => task.Title == subtask.Title);
+
+            this.Validation.SubtaskNotFound(deletedSubtask);
+
+            this.subtasks.Remove(deletedSubtask);
+        }
+
+        public void CompleteToDo()
+        {
+            this.IsComleate = false;
+            this.Status = StatusType.Finished;
+        }
     }
 }

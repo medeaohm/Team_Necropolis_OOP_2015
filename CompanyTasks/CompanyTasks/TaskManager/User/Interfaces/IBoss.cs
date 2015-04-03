@@ -1,16 +1,15 @@
 ﻿namespace TaskManager.User.Interfaces
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
-    interface IBoss
+    public interface IBoss
     {
-        ICollection<Client> clients { get; }
-        void addClient(Client clientName);
-        void removeClient(Client clientName);
+        ICollection<IClient> clients { get; }
+
+        void addClient(IClient clientName);
+
+        void removeClient(IClient clientName);
+
         string listOfClients();
     }
 }

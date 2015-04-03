@@ -8,67 +8,36 @@ namespace TaskManager.User
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
+
+    using Enums;
     using User.Interfaces;
+    using Task.Interfaces;
 
-
-    public class Manager : Employee, IDirector, IPromote, ICreateNewTask
+    public class Manager : Employee, IManager
     {
-        private ICollection<Employee> team;
-        private ICollection<string> task;
+        private const decimal InitSalary = 3000M;
+        private const PositionType InitPosition = PositionType.Manager;
 
-        public Manager(string name, DateTime dateBirth, Gender sex, string position, int timeWorked, decimal salary)
-            :base(name, dateBirth, sex, position, timeWorked, salary)
+        public Manager(string name, DateTime dateBirth, Gender sex, int timeWorked, Team initTeam)
+            : base(name, dateBirth, sex, InitPosition, timeWorked, InitSalary)
         {
-            this.team = new List<Employee>();
-            this.task = new List<string>();
-        }
-        public ICollection<Employee> Team
-        {
-            get
-            {
-                return new List<Employee>(team);
-            }
+            this.Team = initTeam;
         }
 
-        public ICollection<string> Task
-        {
-            get
-            {
-                return new List<string>(task);
-            }
-        }
-
-        public void AddToTeam(Employee employeeName)
-        {
-            this.team.Add(employeeName);
-        }
-
-        public void RemoveFromTeam(Employee employeeName)
-        {
-            this.team.Remove(employeeName);
-        }
-        
-        public void CreateNewTaskToTeam(string newTask)
-        {
-            this.task.Add(newTask);
-        }
+        public Team Team { get; private set; }
 
         public override string ToString()
         {
             var result = new StringBuilder();
 
-            var teamName = this.Team
-                .Select(x => x.Name);
+            var teamName = this.Team.TeamName;
+                
 
             result.Append(base.ToString());
             result.AppendLine(string.Format("The {1}'s team - {0}", string.Join(", ", teamName), this.Name));
             result.AppendLine("Task's to Team:");
-            result.AppendLine(string.Format("{0}", string.Join(", ", this.task)));
+            result.AppendLine(string.Format("{0}", string.Join(", ", this.PersonalTask)));
             return result.ToString();
         }
-
-       
     }
-
 }

@@ -1,4 +1,4 @@
-﻿namespace TaskManager.User
+﻿namespace TaskManager.User.Enums
 {
     public enum Gender
     {
