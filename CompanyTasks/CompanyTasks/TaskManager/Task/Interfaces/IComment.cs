@@ -1,9 +1,14 @@
 ﻿namespace TaskManager.Task.Interfaces
 {
+    using System;
+    using User.Interfaces;
+
     public interface IComment
     {
-        /*
-         A short comment could be add to a task
-         */
+        string Content { get; }
+
+        DateTime DateToCreate { get; }
+
+        IPerson Author { get; }
     }
 }
