@@ -14,17 +14,16 @@ namespace TaskManager.User
         private const decimal InitSalary = 900;
         private const PositionType InitPosition = PositionType.Junior;
 
-        public JuniorEmployee(string name, DateTime dateBirth, Gender sex, int timeWorked )
-            : base(name, dateBirth, sex, InitPosition, timeWorked, InitSalary)
+        public JuniorEmployee(string name, DateTime dateBirth, Gender sex, DateTime dateHired )
+            : base(name, dateBirth, sex, InitPosition, dateHired, InitSalary)
         {
-
         }
 
-        public SiniorEmployee PromotedToSinior(Employee employee, bool isPromoted)
+        public SeniorEmployee PromotedToSinior(Employee employee, bool isPromoted)
         {
             if (employee.IsPromoted)
             {
-                return new SiniorEmployee(employee.Name, employee.DateBirth, employee.Sex, 0);
+                return new SeniorEmployee(employee.Name, employee.DateBirth, employee.Sex, 0);
             }
             else return null;
         }

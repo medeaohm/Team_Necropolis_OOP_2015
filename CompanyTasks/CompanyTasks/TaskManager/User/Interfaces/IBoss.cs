@@ -6,10 +6,10 @@
     {
         ICollection<IClient> clients { get; }
 
-        void addClient(IClient clientName);
+        void AddClient(IClient clientName);
 
-        void removeClient(IClient clientName);
+        void RemoveClient(IClient clientName);
 
-        string listOfClients();
+        string ListOfClients();
     }
 }

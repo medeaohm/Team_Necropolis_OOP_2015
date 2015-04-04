@@ -19,22 +19,22 @@
         }
 
 
-        public void addClient(IClient clientName)
+        public void AddClient(IClient clientName)
         {
             clients.Add(clientName);
         }
 
 
-        public void removeClient(IClient clientName)
+        public void RemoveClient(IClient clientName)
         {
             clients.Remove(clientName);
         }
 
 
-        public string listOfClients()
+        public string ListOfClients()
         {
             var resultClients = clients
-                .Select(x => x.Name + " " + x.MyProjectTodo);
+                .Select(x => x.Name + " " + x.MyProjectsTodo);
             var result = new StringBuilder();
             result.AppendLine("Clients:");
             result.AppendLine(string.Format("{0}", string.Join(", ", resultClients)));

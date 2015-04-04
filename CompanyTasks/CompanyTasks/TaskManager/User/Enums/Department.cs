@@ -3,7 +3,14 @@
     public enum Department
     {
         Sport,
-        Culture,
+        MoviesAndTV,
+        Politics,
+        Fashion,
+        Music,
+        Art,
+        Games,
+        Weather,
+        Celebrities
         /* more departments to be added */
     }
 }

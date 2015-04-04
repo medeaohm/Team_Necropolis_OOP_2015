@@ -7,13 +7,11 @@ namespace TaskManager.Task.Interfaces
 
     public interface ISubtask
     {
-        DateTime DateToCreate { get; }
+        DateTime DateCreated { get; }
 
-        DateTime DateToEnd { get; }
+        DateTime DateDue { get; private set; }
 
-        bool IsComleate { get; set; }
-
-        int DaysToEnd { get; set; }
+        bool IsCompleted { get; set; }
 
         string Description { get; set; }
 

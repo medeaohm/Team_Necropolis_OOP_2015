@@ -2,8 +2,10 @@
 {
     public enum PositionType
     {
-        Manager = 0,
-        Sinior = 1,
-        Junior = 2,
+        Junior = 0,
+        RegularEmployee = 1,
+        SeniorEmployee = 2,
+        TeamLeader = 3,
+        Boss = 4
     }
 }

@@ -14,9 +14,9 @@
     {
         public static void Main()
         {
-            var manager = new Manager("Kir4o", new DateTime(1968, 05, 20), Gender.Male, 10, new Team("Kir4osTeam"));
-            var employee = new JuniorEmployee("Petra", new DateTime(1988, 12, 01), Gender.Female, 2);
-            var newEmp = new SiniorEmployee("Stamat", new DateTime(1986, 01, 30), Gender.Male, 10);
+            var manager = new TeamLeader("Kir4o", new DateTime(1968, 05, 20), Gender.Male, new DateTime(1999, 05, 20), new Team("Kir4osTeam"));
+            var employee = new JuniorEmployee("Petra", new DateTime(1988, 12, 01), Gender.Female, new DateTime(2005, 09, 05));
+            var newEmp = new SeniorEmployee("Stamat", new DateTime(1986, 01, 30), Gender.Male, new DateTime(2002, 07, 16));
 
             manager.Team.AddEmployee(employee);
             manager.Team.AddEmployee(newEmp);

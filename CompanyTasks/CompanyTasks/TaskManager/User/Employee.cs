@@ -20,40 +20,40 @@ namespace TaskManager.User
         private const string GeneralToStringFormat = "Position: {0}, Salary: {1}, Time Worked: {2}";
 
         private decimal salary;
-        private int timeWorked;
-        private ICollection<IToDo> personalTasks;
+        private DateTime dateHired;
+        private ICollection<IToDo> personalTodos;
         public bool IsPromoted { get; set; }
 
-        public Employee(string name, DateTime dateBirth, Gender sex, PositionType position, int timeWorked, decimal salary)
+        public Employee(string name, DateTime dateBirth, Gender sex, PositionType position, DateTime dateHired, decimal salary)
             : base(name, dateBirth, sex)
         {
             this.Position = position;
-            this.TimeWorked = timeWorked;
+            this.DateHired = dateHired;
             this.Salary = salary;
 
-            this.personalTasks = new List<IToDo>();
+            this.personalTodos = new List<IToDo>();
         }
 
-        public ICollection<IToDo> PersonalTask
+        public ICollection<IToDo> PersonalTodos
         {
             get
             {
-                return new List<IToDo>(this.personalTasks);
+                return new List<IToDo>(this.personalTodos);
             }
         }
 
-        public int TimeWorked
+        public DateTime DateHired
         {
             get
             {
-                return this.timeWorked;
+                return this.dateHired;
             }
 
             private set
             {
-                this.Validation.ValidateTimeWorked(value);
+                this.Validation.ValidateDateHired(value);
 
-                this.timeWorked = value;
+                this.dateHired = value;
             }
         }
 
@@ -78,8 +78,45 @@ namespace TaskManager.User
         {
             var result = new StringBuilder();
             result.Append(base.ToString());
-            result.AppendLine(string.Format(Employee.GeneralToStringFormat, this.Position, this.Salary, this.TimeWorked));
+            result.AppendLine(string.Format(Employee.GeneralToStringFormat, this.Position, this.Salary, this.DateHired));
             return result.ToString();
+        }
+
+        public int ServiceInCompany
+        {
+            get
+            {
+                return (DateTime.Now - this.DateHired).Days;
+            }
+        }
+        
+        public void RemovePersonalTodo(IToDo item)
+        {
+            if (this.personalTodos.Contains(item))
+            {
+                this.personalTodos.Remove(item);
+            }
+            else
+            {
+                // here implement id the item is not in the set
+            }
+        }
+
+        public void AddPersonalTodo(IToDo item)
+        {
+            if (!(this.personalTodos.Contains(item)))
+            {
+                this.personalTodos.Add(item);
+            }
+            else
+            {
+                // here implement id the item is already in the set
+            }
+        }
+
+        public void EmptyPersonalTodos()
+        {
+            this.personalTodos = new List<IToDo>();
         }
     }
 }

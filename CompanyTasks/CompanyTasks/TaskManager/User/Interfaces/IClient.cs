@@ -1,9 +1,13 @@
 ﻿namespace TaskManager.User.Interfaces
 {
+    using System.Collections.Generic;
+
     public interface IClient : IPerson
     {
-        string MyProjectTodo { get; }
-
+        List<string>MyProjectsTodo { get; }
+        void AddProject();
+        void RemoveProject();
+        void EmptyProjects();
         string ClientCompany { get; }
     }
 }

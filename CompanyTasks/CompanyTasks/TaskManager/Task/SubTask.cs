@@ -13,42 +13,32 @@
 
         private string title;
         private string description;
-        private int daysToEnd;
+        private DateTime dueDate;
 
-        public Subtask(string initTitle, int initDaysToEnd, string initDescription, PriorityType initPriority)
+        public Subtask(string initTitle, string initDescription, PriorityType initPriority, DateTime dueDate)
         {
             this.Title = initTitle;
             this.Priority = initPriority;
-            this.DateToCreate = DateTime.Now;
+            this.DateCreated = DateTime.Now;
+            this.DueDate = dueDate;
             this.Description = initDescription;
         }
 
         public PriorityType Priority { get; set; }
 
-        public bool IsComleate { get; set; }
+        public bool IsCompleted { get; set; }
 
-        public DateTime DateToCreate { get; private set; }
+        public DateTime DateCreated { get; private set; }
 
-        public DateTime DateToEnd
+        public DateTime DueDate
         {
             get
             {
-                return this.DateToCreate.AddDays(this.daysToEnd);
+                return this.dueDate;
             }
-        }
-
-        public int DaysToEnd
-        {
-            get
-            {
-                return this.daysToEnd;
-            }
-
             set
             {
-                this.validation.ValidateDaysToEnd(value, "Days to end");
-
-                this.daysToEnd = value;
+                this.dueDate = value;
             }
         }
 
@@ -91,5 +81,6 @@
         {
             return string.Format("ToDo {0} - Title {1} , Description {2}", this.GetType().Name, this.title, this.description);
         }
+
     }
 }

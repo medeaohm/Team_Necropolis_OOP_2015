@@ -17,7 +17,7 @@
             this.StringLengthMinMax(value,"Name length", MaxLengthName, MinLengthName);
         }
 
-        public void ValidateDateOfBirth(System.DateTime value)
+        public void ValidateDateOfBirth(DateTime value)
         {
             if (value > DateTime.Now)
             {
@@ -25,9 +25,12 @@
             }
         }
 
-        public void ValidateTimeWorked(int value)
+        public void ValidateDateHired(DateTime value)
         {
-            this.NotNegativeIntegers<int>(value, "Time worked");
+            if (value > DateTime.Now)
+            {
+                throw new ArgumentException("Date of hiring can not be to bigger from current date!");
+            }
         }
 
 

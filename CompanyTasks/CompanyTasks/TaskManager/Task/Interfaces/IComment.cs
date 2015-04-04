@@ -7,7 +7,7 @@
     {
         string Content { get; }
 
-        DateTime DateToCreate { get; }
+        DateTime DateCreated { get; }
 
         IPerson Author { get; }
     }
