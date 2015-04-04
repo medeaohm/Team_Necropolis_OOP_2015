@@ -23,7 +23,7 @@ namespace TaskManager.User
         {
             if (employee.IsPromoted)
             {
-                return new SeniorEmployee(employee.Name, employee.DateBirth, employee.Sex, 0);
+                return new SeniorEmployee(employee.Name, employee.DateBirth, employee.Sex, employee.DateHired);
             }
             else return null;
         }

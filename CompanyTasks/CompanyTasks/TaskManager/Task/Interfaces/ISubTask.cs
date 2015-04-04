@@ -9,7 +9,7 @@ namespace TaskManager.Task.Interfaces
     {
         DateTime DateCreated { get; }
 
-        DateTime DateDue { get; private set; }
+        DateTime DueDate { get; set; }
 
         bool IsCompleted { get; set; }
 

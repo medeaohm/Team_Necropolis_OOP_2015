@@ -81,6 +81,5 @@
         {
             return string.Format("ToDo {0} - Title {1} , Description {2}", this.GetType().Name, this.title, this.description);
         }
-
     }
 }

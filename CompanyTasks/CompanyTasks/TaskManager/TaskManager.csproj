@@ -46,6 +46,7 @@
     <Compile Include="Common\IValidation.cs" />
     <Compile Include="TaskManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task\Interfaces\ISubscriber.cs" />
     <Compile Include="Task\Note.cs" />
     <Compile Include="Task\Enum\PriorityType.cs" />
     <Compile Include="Task\Enum\StatusType.cs" />
@@ -57,12 +58,15 @@
     <Compile Include="Task\Interfaces\IToDoFactory.cs" />
     <Compile Include="Task\LowToDo.cs" />
     <Compile Include="Task\MediumToDo.cs" />
+    <Compile Include="Task\ReminderSubtask.cs" />
     <Compile Include="Task\Subtask.cs" />
+    <Compile Include="Task\TestReminderSubscriber.cs" />
     <Compile Include="Task\ToDo.cs" />
     <Compile Include="Task\ToDoFactory.cs" />
     <Compile Include="Task\Validation\CommentValidation.cs" />
     <Compile Include="Task\Validation\ICommentValidation.cs" />
     <Compile Include="Task\Validation\ITaskValidation.cs" />
+    <Compile Include="Task\Validation\ReminderDateValidator.cs" />
     <Compile Include="Task\Validation\TaskValidation.cs" />
     <Compile Include="User\Boss.cs" />
     <Compile Include="User\Client.cs" />

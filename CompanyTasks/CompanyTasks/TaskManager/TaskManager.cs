@@ -55,6 +55,18 @@
             //    Console.WriteLine(task);
             //}
 
+            //Test Event
+            var someSubtask = new ReminderSubTask("Test Reminder Task",  "Some describtion that is longer than 20",  Task.Enum.PriorityType.Important, new DateTime(2015, 4, 4, 22, 55, 0), new DateTime(2015, 4, 4, 22, 53, 0)); // sender
+            var someSubscriber = new TestReminderSubscriber(); // Subscriber
+
+            someSubtask.ReminderTimeReached += someSubscriber.OnReminderTimeReached; //subscribtion happens here
+            //Checks If Reminder Works 
+            //while (true)
+            //{
+            //    someSubtask.CheckRemider();
+            //
+            //}
+
         }
     }
 }

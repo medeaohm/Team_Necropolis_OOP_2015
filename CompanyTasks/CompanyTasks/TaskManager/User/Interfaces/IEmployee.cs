@@ -17,8 +17,8 @@
 
         ICollection<IToDo> PersonalTodos { get;}
 
-        void RemovePersonalTodo();
-        void AddPersonalTodo();
+        void RemovePersonalTodo(IToDo item);
+        void AddPersonalTodo(IToDo item);
         void EmptyPersonalTodos();
     }
 }

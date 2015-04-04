@@ -21,7 +21,7 @@ namespace TaskManager.User
         {
             if (employee.IsPromoted)
             {
-                return new TeamLeader(employee.Name, employee.DateBirth, employee.Sex, 0, new Team(string.Format("{0}'s Team", employee.Name)));
+                return new TeamLeader(employee.Name, employee.DateBirth, employee.Sex, employee.DateHired, new Team(string.Format("{0}'s Team", employee.Name)));
             }
             else return null;
         }
