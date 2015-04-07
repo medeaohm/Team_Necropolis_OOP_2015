@@ -62,26 +62,20 @@ _option % of the task/project is done_
 ####Design
 + Color tags
 
-####Extras
+####Progress of requirements
 
-* * *
++ At least 5 interfaces (with one or more implementations) - **done**
++ At least 15 classes (implementing the application logic) **done**
++ At least 3 abstract classes (with inheritors) **done**
+	1. Peson
+	2. Todo
+	3. Common Validator
++ At least 1 custom exception class (with usage in your code) **done**
++ At least 3 levels of depth in inheritance **done**
++ At least 1 polymorphism usage
++ At least 1 structure
++ At least 1 enumeration **done**
++ At least 1 event (with subscribers) **done**
++ At least 1 design pattern **done**
 
-#####Exmple classes
-#####User
-User name, Password, Boards
-######functions:
-#####Board - custom boards for list of todo's and notes ex. Today, Work, Private, Whishlist
-todos, notes at the end
-######functions:
-#####Note
-Title, text, tag, DateTime created
-######functions:
-#####todo : Note 
-due DateTime
-######functions:
-#####todo reminder : todo 
-time  before the event
-######functions:
-#####todo check : todo
-checklist
-######functions:
+
