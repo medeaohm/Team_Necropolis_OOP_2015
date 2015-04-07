@@ -17,8 +17,15 @@ namespace TaskManager.User
     {
         private const decimal InitSalary = 3000M;
         private const PositionType InitPosition = PositionType.TeamLeader;
+        private Team initTeam;
 
         public TeamLeader(string name, DateTime dateBirth, Gender sex, DateTime dateHired, Team initTeam)
+            : base(name, dateBirth, sex, InitPosition, dateHired, InitSalary)
+        {
+            this.Team = initTeam;
+        }
+
+        public TeamLeader(string name, DateTime dateBirth, Gender sex, DateTime dateHired)
             : base(name, dateBirth, sex, InitPosition, dateHired, InitSalary)
         {
             this.Team = initTeam;

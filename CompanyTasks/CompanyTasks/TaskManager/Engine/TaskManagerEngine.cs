@@ -18,6 +18,9 @@
         private const string InvalidCommand = "Invalid command name: {0}!";
         private const string CategoryExists = "Category with name {0} already exists!";
         private const string BossCreated = "Boss with name {0} was created!";
+        private const string JuniorEmployeeCreated = "Junior employee with name {0} was created!";
+        private const string SeniorEmployeeCreated = "Senior employee with name {0} was created!";
+        private const string TeamLeaderCreated = "Team Leader with name {0} was created!";
         private const string InvalidGenderType = "Invalid gender type!";
 
 
@@ -25,15 +28,11 @@
 
         private readonly UsersFactory userFactory;
         private readonly TasksFactory tasksFactory;
-        //private readonly IDictionary<string, ICategory> categories;
-        //private readonly IDictionary<string, IProduct> products;
 
         private TaskManagerEngine()
         {
             this.userFactory = new UsersFactory();
             this.tasksFactory = new TasksFactory();
-            //this.categories = new Dictionary<string, ICategory>();
-            //this.products = new Dictionary<string, IProduct>();
         }
 
         public static TaskManagerEngine Instance
@@ -110,6 +109,38 @@
                    
                     return this.CreateBoss(bossName, bossBirth, bossGender);
 
+                case "CreateTeamLeader":
+                    var tlName = command.Parameters[0];
+                    var tlBirth = DateTime.Parse(command.Parameters[1]);
+                    var tlGender = this.GetGender(command.Parameters[2]);
+                    var tlHired = DateTime.Parse(command.Parameters[3]);
+
+                    return this.CreateSeniorEmployee(tlName, tlBirth, tlGender, tlHired);
+
+                case "CreateSeniorEmployee":
+                    var senName = command.Parameters[0];
+                    var senBirth = DateTime.Parse(command.Parameters[1]);
+                    var senGender = this.GetGender(command.Parameters[2]);
+                    var senHired = DateTime.Parse(command.Parameters[3]);
+
+                    return this.CreateSeniorEmployee(senName, senBirth, senGender, senHired);
+
+                case "CreateJuniorEmployee":
+                    var junName = command.Parameters[0];
+                    var junBirth = DateTime.Parse(command.Parameters[1]);
+                    var junGender = this.GetGender(command.Parameters[2]);
+                    var junHired = DateTime.Parse(command.Parameters[3]);
+
+                    return this.CreateJuniorEmployee(junName, junBirth, junGender, junHired);
+
+                case "CreateClient":
+                    var clientName = command.Parameters[0];
+                    var clientCompany = command.Parameters[1];
+                    var clientBirth = DateTime.Parse(command.Parameters[2]);
+                    var clientGender = this.GetGender(command.Parameters[3]);
+
+                    return this.CreateClient(clientName, clientCompany, clientBirth, clientGender);
+
                 default:
                     return string.Format(InvalidCommand, command.Name);
             }
@@ -121,6 +152,35 @@
 
             return string.Format(BossCreated, name);
         }
+
+        private string CreateTeamLeader(string name, DateTime dateBirth, Gender sex, DateTime dateHired)
+        {
+            var tl = this.userFactory.CreateTeamLeader(name, dateBirth, sex, dateHired);
+
+            return string.Format(TeamLeaderCreated, name);
+        }
+
+        private string CreateJuniorEmployee(string name, DateTime dateBirth, Gender sex, DateTime dateHired)
+        {
+            var jun = this.userFactory.CreateJuniorEmployee(name, dateBirth, sex, dateHired);
+
+            return string.Format(JuniorEmployeeCreated, name);
+        }
+
+        private string CreateSeniorEmployee(string name, DateTime dateBirth, Gender sex, DateTime dateHired)
+        {
+            var sen = this.userFactory.CreateJuniorEmployee(name, dateBirth, sex, dateHired);
+
+            return string.Format(SeniorEmployeeCreated, name);
+        }
+
+        private string CreateClient(string name, string clientCompany, DateTime dateBirth, Gender sex)
+        {
+            var tl = this.userFactory.CreateClient(name, clientCompany, dateBirth, sex);
+
+            return string.Format(TeamLeaderCreated, name);
+        }
+
 
         private Gender GetGender(string genderAsString)
         {

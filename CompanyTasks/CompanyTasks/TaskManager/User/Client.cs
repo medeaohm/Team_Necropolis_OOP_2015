@@ -8,6 +8,7 @@
 
     public class Client : Person, IClient
     {
+        private List<string> myProjectTodo;
 
         public List<string> MyProjectsTodo { get; private set; }
         public string ClientCompany { get; private set; }
@@ -19,6 +20,12 @@
             this.MyProjectsTodo = myProjectTodo.ToList();
         }
 
+        public Client(string name, string clientCompany, DateTime dateBirth, Gender sex)
+            : base(name, dateBirth, sex)
+        {
+            this.ClientCompany = clientCompany;
+            this.MyProjectsTodo = myProjectTodo.ToList();
+        }
         public void AddProject(string project)
         {
             if (!(this.MyProjectsTodo.Contains(project)))

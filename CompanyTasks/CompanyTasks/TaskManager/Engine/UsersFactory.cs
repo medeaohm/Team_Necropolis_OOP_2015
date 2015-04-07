@@ -16,9 +16,9 @@
             return boss;
         }
 
-        public ITeamLeader CreateTeamLeader(string name, DateTime birthDate, Gender gender, DateTime dateHired, Team team)
+        public ITeamLeader CreateTeamLeader(string name, DateTime birthDate, Gender gender, DateTime dateHired)
         {
-            ITeamLeader teamLeader = new TeamLeader(name, birthDate, gender, dateHired, team);
+            ITeamLeader teamLeader = new TeamLeader(name, birthDate, gender, dateHired);
             return teamLeader;
         }
 
@@ -35,9 +35,9 @@
             return seniorEmployee;
         }
 
-        public IClient CreateClient(string name, string company, IEnumerable<string> projects, DateTime birthdate, Gender gender)
+        public IClient CreateClient(string name, string company, DateTime birthdate, Gender gender)
         {
-            IClient client = new Client(name, company, projects, birthdate, gender);
+            IClient client = new Client(name, company, birthdate, gender);
             return client;
         }
     }
